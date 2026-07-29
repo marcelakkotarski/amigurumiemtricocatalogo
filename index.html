@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#89504a">
+  <meta name="description" content="Receitas digitais de Tricorumi em PDF. Escolha seu bichinho favorito e comece a transformar fios e agulhas em peças encantadoras.">
+  <title>Receitas Tricorumi | Amore Amigurumi</title>
+
+  <!-- Página leve: sem bibliotecas, fontes ou imagens externas. -->
+  <link rel="preload" href="Ovelha%20Nina.png" as="image" fetchpriority="high">
+
+  <style>
+    :root{
+      --bg:#fff9f3;
+      --paper:#fffdf9;
+      --rose:#bc726b;
+      --rose-dark:#89504a;
+      --rose-soft:#f3d9d3;
+      --blush:#faece7;
+      --sand:#ead4bd;
+      --ink:#3f2c27;
+      --muted:#78655e;
+      --line:rgba(137,80,74,.17);
+      --green:#55735e;
+      --gold:#a67b54;
+      --shadow:0 18px 50px rgba(78,47,39,.12);
+      --radius:24px;
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%,rgba(243,217,211,.65),transparent 27rem),
+        radial-gradient(circle at 96% 8%,rgba(234,212,189,.55),transparent 30rem),
+        var(--bg);
+      font-family:var(--sans);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,input{font:inherit}
+    .shell{width:min(1180px,calc(100% - 30px));margin-inline:auto}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:30;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,249,243,.91);
+      backdrop-filter:blur(13px);
+    }
+    .topbar-inner{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
+    .brand-mark{
+      display:grid;
+      place-items:center;
+      width:42px;height:42px;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:#fff;
+      font-size:1.1rem;
+      box-shadow:0 7px 19px rgba(78,47,39,.08);
+    }
+    .brand-text strong{
+      display:block;
+      color:var(--rose-dark);
+      font-family:var(--serif);
+      font-size:1.25rem;
+      line-height:1;
+    }
+    .brand-text small{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:.66rem;
+      font-weight:750;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .top-cta{
+      padding:9px 13px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--rose-dark);
+      background:#fff;
+      font-size:.78rem;
+      font-weight:850;
+      text-decoration:none;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:62px 0 38px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);
+      align-items:center;
+      gap:38px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--rose-dark);
+      background:rgba(255,255,255,.74);
+      font-size:.77rem;
+      font-weight:850;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{content:"♥";font-size:.68rem}
+    h1,h2,h3,p{margin-top:0}
+    h1{
+      max-width:720px;
+      margin:20px 0 17px;
+      font-family:var(--serif);
+      font-size:clamp(2.7rem,5.8vw,5.25rem);
+      line-height:.98;
+      letter-spacing:-.047em;
+    }
+    h1 em{
+      display:block;
+      color:var(--rose);
+      font-weight:400;
+    }
+    .hero-copy{
+      max-width:670px;
+      margin-bottom:22px;
+      color:var(--muted);
+      font-size:clamp(1rem,1.8vw,1.17rem);
+    }
+    .benefits{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-bottom:27px;
+    }
+    .benefits span{
+      padding:9px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      color:var(--muted);
+      font-size:.82rem;
+      font-weight:750;
+    }
+    .primary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:53px;
+      padding:13px 21px;
+      border-radius:15px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--rose),var(--rose-dark));
+      box-shadow:0 12px 27px rgba(137,80,74,.23);
+      font-weight:850;
+      text-decoration:none;
+      transition:transform .16s ease,box-shadow .16s ease;
+    }
+    .primary-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 32px rgba(137,80,74,.29);
+    }
+    .microcopy{margin:10px 0 0;color:var(--muted);font-size:.8rem}
+
+    .hero-art{
+      position:relative;
+      min-height:520px;
+    }
+    .feature-card{
+      position:absolute;
+      overflow:hidden;
+      border:1px solid rgba(137,80,74,.2);
+      border-radius:24px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .feature-card img{width:100%;height:100%;object-fit:cover}
+    .feature-main{
+      width:62%;
+      height:76%;
+      right:15%;
+      top:3%;
+      z-index:3;
+      transform:rotate(1deg);
+    }
+    .feature-left{
+      width:43%;
+      height:55%;
+      left:0;
+      bottom:2%;
+      z-index:2;
+      transform:rotate(-5deg);
+    }
+    .feature-right{
+      width:40%;
+      height:50%;
+      right:0;
+      bottom:0;
+      z-index:4;
+      transform:rotate(5deg);
+    }
+    .feature-label{
+      position:absolute;
+      left:10px;right:10px;bottom:10px;
+      padding:8px 9px;
+      border-radius:11px;
+      color:#fff;
+      background:rgba(63,44,39,.77);
+      backdrop-filter:blur(6px);
+      font-size:.74rem;
+      font-weight:850;
+      text-align:center;
+    }
+
+    .trust-strip{padding:6px 0 34px}
+    .trust-box{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:rgba(255,253,249,.9);
+      box-shadow:0 10px 28px rgba(78,47,39,.06);
+    }
+    .trust-item{
+      padding:18px;
+      text-align:center;
+    }
+    .trust-item + .trust-item{border-left:1px solid var(--line)}
+    .trust-item strong{
+      display:block;
+      margin-bottom:3px;
+      color:var(--rose-dark);
+      font-family:var(--serif);
+      font-size:1.08rem;
+    }
+    .trust-item span{color:var(--muted);font-size:.82rem}
+
+    .catalog{padding:35px 0 80px}
+    .catalog-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:24px;
+    }
+    .section-kicker{
+      display:block;
+      margin-bottom:7px;
+      color:var(--rose);
+      font-size:.77rem;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .catalog-head h2{
+      max-width:700px;
+      margin-bottom:7px;
+      font-family:var(--serif);
+      font-size:clamp(2rem,4.4vw,3.7rem);
+      line-height:1.03;
+      letter-spacing:-.035em;
+    }
+    .catalog-head p{margin-bottom:0;color:var(--muted)}
+    .search{
+      width:min(340px,100%);
+      min-height:49px;
+      padding:11px 15px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      color:var(--ink);
+      background:#fff;
+      outline:none;
+    }
+    .search:focus{
+      border-color:var(--rose);
+      box-shadow:0 0 0 3px rgba(188,114,107,.12);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .card{
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,253,249,.98);
+      box-shadow:0 12px 36px rgba(78,47,39,.075);
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(188,114,107,.46);
+      box-shadow:var(--shadow);
+    }
+    .image-wrap{
+      position:relative;
+      overflow:hidden;
+      margin:12px 12px 0;
+      border-radius:18px;
+      background:linear-gradient(145deg,var(--blush),var(--sand));
+    }
+    .product-image{
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center;
+      transition:transform .34s ease;
+    }
+    .card:hover .product-image{transform:scale(1.025)}
+    .badge{
+      position:absolute;
+      top:10px;
+      left:10px;
+      padding:6px 9px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;
+      color:#fff;
+      background:rgba(63,44,39,.77);
+      backdrop-filter:blur(6px);
+      font-size:.67rem;
+      font-weight:850;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .card-content{
+      display:flex;
+      flex-direction:column;
+      flex:1;
+      padding:16px;
+    }
+    .card-content h3{
+      margin-bottom:6px;
+      font-family:var(--serif);
+      font-size:1.68rem;
+      line-height:1.06;
+    }
+    .description{
+      min-height:63px;
+      margin-bottom:14px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .price-row{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:auto;
+      padding-top:13px;
+      border-top:1px solid var(--line);
+    }
+    .price-label{
+      display:block;
+      color:var(--muted);
+      font-size:.7rem;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .price{
+      display:block;
+      color:var(--rose-dark);
+      font-family:var(--serif);
+      font-size:1.86rem;
+      font-weight:700;
+      line-height:1;
+    }
+    .access{
+      color:var(--muted);
+      font-size:.72rem;
+      text-align:right;
+    }
+    .buy{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:49px;
+      margin-top:14px;
+      padding:12px 15px;
+      border-radius:14px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--rose),var(--rose-dark));
+      box-shadow:0 10px 22px rgba(137,80,74,.19);
+      font-weight:850;
+      text-align:center;
+      text-decoration:none;
+      transition:transform .16s ease,box-shadow .16s ease;
+    }
+    .buy:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 28px rgba(137,80,74,.25);
+    }
+    .buy.disabled{
+      cursor:not-allowed;
+      opacity:.58;
+      box-shadow:none;
+    }
+
+    .empty{
+      display:none;
+      padding:45px 15px;
+      color:var(--muted);
+      text-align:center;
+    }
+    .closing{
+      margin-top:30px;
+      padding:27px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:
+        linear-gradient(135deg,rgba(250,236,231,.96),rgba(255,253,249,.96));
+      text-align:center;
+    }
+    .closing h2{
+      margin-bottom:7px;
+      font-family:var(--serif);
+      font-size:clamp(1.75rem,4vw,2.7rem);
+    }
+    .closing p{max-width:730px;margin:0 auto;color:var(--muted)}
+
+    footer{
+      padding:25px 15px 40px;
+      color:var(--muted);
+      font-size:.78rem;
+      text-align:center;
+    }
+    footer strong{color:var(--ink)}
+
+    @media(max-width:930px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-art{width:min(570px,100%);margin-inline:auto}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:680px){
+      .shell{width:min(100% - 20px,1180px)}
+      .topbar-inner{min-height:60px}
+      .brand-mark{width:37px;height:37px}
+      .top-cta{display:none}
+      .hero{padding:40px 0 26px}
+      h1{font-size:2.72rem}
+      .hero-art{min-height:430px}
+      .trust-box{grid-template-columns:1fr}
+      .trust-item + .trust-item{border-left:0;border-top:1px solid var(--line)}
+      .catalog-head{align-items:stretch;flex-direction:column}
+      .search{width:100%}
+      .grid{grid-template-columns:1fr}
+      .description{min-height:0}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition:none!important}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Ir ao início">
+        <span class="brand-mark">🧶</span>
+        <span class="brand-text">
+          <strong>Amore Amigurumi</strong>
+          <small>Tricorumi</small>
+        </span>
+      </a>
+      <a class="top-cta" href="#receitas">Ver receitas disponíveis</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">Receitas digitais em PDF</span>
+          <h1>Escolha o bichinho que vai <em>sair das suas agulhas.</em></h1>
+          <p class="hero-copy">
+            Receitas organizadas para você transformar o tricô em personagens encantadores,
+            peças afetivas e produtos diferentes para oferecer durante o ano inteiro.
+          </p>
+
+          <div class="benefits" aria-label="Benefícios">
+            <span>Passo a passo completo</span>
+            <span>Acesso vitalício ao PDF</span>
+            <span>Compra segura pela Kiwify</span>
+          </div>
+
+          <a class="primary-btn" href="#receitas">Quero escolher meu bichinho</a>
+          <p class="microcopy">Produto digital. Você receberá a receita, não o bichinho pronto — infelizmente ele ainda não aprendeu a se tricotar sozinho 😂</p>
+        </div>
+
+        <div class="hero-art" aria-label="Algumas receitas disponíveis">
+          <article class="feature-card feature-main">
+            <img src="Ovelha%20Nina.png" alt="Ovelha Nina em tricô" width="600" height="750" fetchpriority="high" decoding="async">
+            <span class="feature-label">Ovelha Nina</span>
+          </article>
+          <article class="feature-card feature-left">
+            <img src="Coelha%20Alice.png" alt="Coelha Alice em tricô" width="500" height="625" loading="eager" decoding="async">
+            <span class="feature-label">Coelha Alice</span>
+          </article>
+          <article class="feature-card feature-right">
+            <img src="Urso%20Nico.png" alt="Urso Nico em tricô" width="500" height="625" loading="eager" decoding="async">
+            <span class="feature-label">Urso Nico</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Informações da compra">
+      <div class="shell trust-box">
+        <div class="trust-item">
+          <strong>Escolha livre</strong>
+          <span>Comece pelo personagem que mais encantou você.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Acesso vitalício</strong>
+          <span>Consulte o PDF sempre que quiser depois da compra.</span>
+        </div>
+        <div class="trust-item">
+          <strong>Pagamento seguro</strong>
+          <span>Checkout processado diretamente pela Kiwify.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="receitas" aria-labelledby="catalog-title">
+      <div class="shell">
+        <div class="catalog-head">
+          <div>
+            <span class="section-kicker">Coleção Tricorumi</span>
+            <h2 id="catalog-title">Qual deles já ganhou seu coração?</h2>
+            <p id="product-count">11 receitas disponíveis</p>
+          </div>
+          <input
+            class="search"
+            id="search"
+            type="search"
+            placeholder="Buscar por nome…"
+            aria-label="Buscar uma receita"
+            autocomplete="off">
+        </div>
+
+        <div class="grid" id="product-grid"></div>
+        <div class="empty" id="empty-state">Nenhum bichinho encontrado. O novelo também ficou procurando 😂</div>
+
+        <div class="closing">
+          <h2>Comece com um. Depois tente resistir aos outros.</h2>
+          <p>
+            Cada receita é uma nova possibilidade para suas agulhas. Escolha a que combina com seu momento,
+            compre com segurança e comece a criar no seu ritmo.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Amore Amigurumi • Tricorumi</strong><br>
+    Produtos digitais. Nenhuma peça física será enviada.
+  </footer>
+
+  <script>
+    "use strict";
+
+    /*
+      EDITE OS PRODUTOS SOMENTE NESTE BLOCO.
+      Os nomes das imagens abaixo correspondem exatamente aos arquivos
+      mostrados no seu GitHub. Não altere maiúsculas, espaços ou hífens.
+    */
+    const PRODUCTS = [
+      {
+        name:"Ovelha Nina",
+        image:"Ovelha%20Nina.png",
+        price:"R$ 19,90",
+        badge:"Oferta especial",
+        description:"Uma ovelhinha delicada, redondinha e afetiva para começar com um projeto encantador.",
+        link:"https://pay.kiwify.com.br/Kzmd8C6"
+      },
+      {
+        name:"Coelha Alice",
+        image:"Coelha%20Alice.png",
+        price:"R$ 37,90",
+        badge:"Delicada",
+        description:"Uma coelhinha cheia de personalidade para trazer ternura e variedade ao seu catálogo.",
+        link:"https://pay.kiwify.com.br/XeH06be"
+      },
+      {
+        name:"Ratinha Bela",
+        image:"ratinha.png",
+        price:"R$ 39,90",
+        badge:"Charmosa",
+        description:"Uma ratinha meiga e elegante, perfeita para peças afetivas, presentes e decoração.",
+        link:"https://pay.kiwify.com.br/4y1oXuR"
+      },
+      {
+        name:"Capivara Amora",
+        image:"capivara-amora.png",
+        price:"R$ 47,90",
+        badge:"Brasileirinha",
+        description:"Uma capivara cheia de personalidade para criar uma peça atual, divertida e vendável.",
+        link:"https://pay.kiwify.com.br/qAjTv46"
+      },
+      {
+        name:"Trio de Naninhas",
+        image:"Trio%20de%20Naninhas.png",
+        price:"R$ 47,90",
+        badge:"Trio especial",
+        description:"Três naninhas delicadas para ampliar sua coleção de peças infantis e afetivas.",
+        link:"https://pay.kiwify.com.br/G2d9U8i"
+      },
+      {
+        name:"Urso Nico",
+        image:"Urso%20Nico.png",
+        price:"R$ 47,90",
+        badge:"Queridinho",
+        description:"Um ursinho delicado e encantador para começar sua experiência com o Tricorumi.",
+        link:"https://pay.kiwify.com.br/njxGegF"
+      },
+      {
+        name:"Coelha Aurora",
+        image:"coelha-aurora.png",
+        price:"R$ 47,90",
+        badge:"Romântica",
+        description:"Uma coelhinha elegante e doce para quem ama personagens cheios de ternura.",
+        link:"https://pay.kiwify.com.br/5U9gq43"
+      },
+      {
+        name:"Coelho Bento",
+        image:"coelho-bento.png",
+        price:"R$ 47,90",
+        badge:"Cheio de estilo",
+        description:"Um coelho expressivo e detalhado para quem deseja criar uma peça marcante.",
+        link:"https://pay.kiwify.com.br/lStNnac"
+      },
+      {
+        name:"Elefante Tito",
+        image:"Elefante%20Tito.png",
+        price:"R$ 47,90",
+        badge:"Aconchegante",
+        description:"Um elefantinho carismático para produzir uma peça macia, afetiva e cheia de presença.",
+        link:"https://pay.kiwify.com.br/QremoJA"
+      },
+      {
+        name:"Urso Ludovico",
+        image:"urso%20ludovico.png",
+        price:"R$ 47,90",
+        badge:"Clássico",
+        description:"Um ursinho sofisticado, com visual atemporal e acabamento que encanta.",
+        link:"https://pay.kiwify.com.br/ONftEcG"
+      },
+      {
+        name:"Patinha Penélope",
+        image:"patinha.png",
+        price:"R$ 47,90",
+        badge:"Fofura garantida",
+        description:"Uma patinha doce e delicada que transforma novelos em muita personalidade.",
+        link:"https://pay.kiwify.com.br/yaq4Y8y"
+      }
+    ];
+
+    const grid = document.getElementById("product-grid");
+    const search = document.getElementById("search");
+    const empty = document.getElementById("empty-state");
+    const count = document.getElementById("product-count");
+
+    function escapeHtml(value){
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      })[char]);
+    }
+
+    function trackingParams(){
+      const params = new URLSearchParams(location.search);
+      const keys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid"];
+      return keys.reduce((data,key)=>{
+        if(params.get(key)) data[key] = params.get(key);
+        return data;
+      },{});
+    }
+
+    function checkoutUrl(link){
+      if(!link) return "#";
+      try{
+        const url = new URL(link);
+        Object.entries(trackingParams()).forEach(([key,value])=>{
+          url.searchParams.set(key,value);
+        });
+        return url.toString();
+      }catch(error){
+        return link;
+      }
+    }
+
+    function placeholder(name){
+      const safeName = escapeHtml(name);
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#faece7"/>
+              <stop offset="1" stop-color="#ead4bd"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="1000" fill="url(#g)"/>
+          <circle cx="400" cy="410" r="150" fill="#fff9f3" stroke="#bc726b" stroke-width="5" stroke-dasharray="12 12"/>
+          <text x="400" y="445" text-anchor="middle" font-size="110" font-family="Arial">🧶</text>
+          <text x="400" y="670" text-anchor="middle" font-size="45" font-family="Georgia" fill="#3f2c27">${safeName}</text>
+          <text x="400" y="725" text-anchor="middle" font-size="25" font-family="Arial" fill="#78655e">imagem em atualização</text>
+        </svg>`;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+
+    function render(products){
+      grid.innerHTML = products.map(product => `
+        <article class="card">
+          <div class="image-wrap">
+            <img
+              class="product-image"
+              src="${escapeHtml(product.image)}"
+              alt="${escapeHtml(product.name)} em Tricorumi"
+              loading="lazy"
+              decoding="async"
+              data-name="${escapeHtml(product.name)}">
+            <span class="badge">${escapeHtml(product.badge)}</span>
+          </div>
+
+          <div class="card-content">
+            <h3>${escapeHtml(product.name)}</h3>
+            <p class="description">${escapeHtml(product.description)}</p>
+
+            <div class="price-row">
+              <div>
+                <span class="price-label">Receita digital</span>
+                <span class="price">${escapeHtml(product.price)}</span>
+              </div>
+              <div class="access">pagamento único<br>acesso vitalício</div>
+            </div>
+
+            ${product.link ? `
+              <a
+                class="buy"
+                href="${escapeHtml(checkoutUrl(product.link))}"
+                target="_blank"
+                rel="noopener noreferrer">
+                Quero esta receita
+              </a>
+            ` : `
+              <span class="buy disabled" aria-disabled="true">
+                Link em breve
+              </span>
+            `}
+          </div>
+        </article>
+      `).join("");
+
+      grid.querySelectorAll("img").forEach(image => {
+        image.addEventListener("error", () => {
+          image.src = placeholder(image.dataset.name || "Tricorumi");
+        }, {once:true});
+      });
+
+      empty.style.display = products.length ? "none" : "block";
+      count.textContent = products.length === 1
+        ? "1 receita encontrada"
+        : `${products.length} receitas disponíveis`;
+    }
+
+    search.addEventListener("input", () => {
+      const term = search.value.trim().toLocaleLowerCase("pt-BR");
+      const filtered = PRODUCTS.filter(product =>
+        `${product.name} ${product.badge} ${product.description}`
+          .toLocaleLowerCase("pt-BR")
+          .includes(term)
+      );
+      render(filtered);
+    });
+
+    render(PRODUCTS);
+  </script>
+</body>
+</html>
